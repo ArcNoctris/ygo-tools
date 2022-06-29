@@ -1,0 +1,7 @@
+{
+  "name": "YuGiOh Tools",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

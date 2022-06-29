@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "yugioh-local-tools": {
+      "hosting": {
+        "ygo-tools": [
+          "yugioh-local-tools"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "yugioh-local-tools"
+  }
+}

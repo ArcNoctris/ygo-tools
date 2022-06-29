@@ -100,8 +100,21 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "ygo-tools:build:production",
+            "firebaseProject": "yugioh-local-tools",
+            "firebaseHostingSite": "yugioh-local-tools"
+          }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "94b3e12e-6355-4b96-90e8-f992d7f44a25"
   }
 }
