@@ -13,10 +13,17 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { RouteReuseStrategy } from '@angular/router';
 
 import { GlobalErrorHandlerService } from './core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PlayComponent } from './play/play.component';
+import { DeckComponent } from './deck/deck.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PlayComponent,
+    DeckComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -26,7 +33,8 @@ import { GlobalErrorHandlerService } from './core';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+    BrowserAnimationsModule
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
