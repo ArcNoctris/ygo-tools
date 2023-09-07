@@ -1,14 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 import { Router } from '@angular/router';
-import { DialogService, FirebaseAuthenticationService } from '../../core/services';
-import {AuthService} from '../../services/auth.service'
+import { DialogService, FirebaseAuthenticationService } from '../core/services';
+import {AuthService} from '../services/auth.service'
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
-export class LoginPage {
+export class LoginComponent implements OnInit {
+  ngOnInit(): void {
+      
+  }
+
   user:any
   constructor(
     private readonly firebaseAuthenticationService: FirebaseAuthenticationService,
@@ -163,4 +168,5 @@ enum SignInProvider {
   playgames = 'playgames',
   twitter = 'twitter',
   yahoo = 'yahoo',
+
 }

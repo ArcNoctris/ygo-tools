@@ -1,13 +1,34 @@
-<ion-header [translucent]="true">
-    <ion-toolbar translucent>
-      <ion-title> YuGiOh Tools </ion-title>
-      <ion-buttons slot="primary">
-        <ion-button color="danger" (click)="openFirst()">
-          <ion-icon name="menu"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-    </ion-toolbar>
-  
-  </ion-header>
-  <ion-content fullscreen>
-  </ion-content>
+<ion-header translucent>
+  <ion-toolbar >
+    <ion-title> Lifepoint Calculator </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button color="danger" (click)="openFirst()">
+        <ion-icon name="menu"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+<ion-content fullscreen slots="fixed">
+
+<div *ngIf="players.length >0" style="height:100%">
+  <ion-grid style="background-color: green; height: 100%;" fxLayout="column" fxLayoutAlign="space-between" >
+    
+    <ion-row style="background-color: green; height: 100%;" *ngFor="let player of players" class="grid">
+      <ion-col  [class]="'img ' "
+      [style.background-image]="'url('+(player.background | async) +')'">
+      <div [class]="player.class" (click)="calcPlayer(player)">
+        {{player.lp}}
+
+      </div>
+      
+    </ion-col>
+  </ion-row>
+  </ion-grid>
+</div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="settings"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

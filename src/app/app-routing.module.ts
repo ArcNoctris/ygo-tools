@@ -2,38 +2,35 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../app/core/guards/auth/auth.guard';
 import {PlayComponent} from './play/play.component'
+import {DeckComponent} from './deck/deck.component'
+import {LoginComponent} from './login/login.component'
+import {HomeComponent} from './home/home.component'
+import {ProfileComponent} from './profile/profile.component'
+
 //import {LoginComponent} from './login/login.component'
 
 const routes: Routes = [
   {
     path: 'login',
-    loadChildren: () =>
-      import('./modules/login/login.module').then((m) => m.LoginPageModule),
+    component: LoginComponent,
   },
-
   {
     path: 'home',
-    loadChildren: () =>
-      import('./modules/home/home.module').then((m) => m.HomePageModule),
-   
+    component: HomeComponent,
   },
   {
     path: 'profile',
-    loadChildren: () =>
-      import('./profile/profile.module').then((m) => m.ProfileModule),
+    component: ProfileComponent,
     canActivate: [AuthGuard],
-
   },
   {
     path: 'decks',
-    loadChildren: () =>
-      import('./modules/home/home.module').then((m) => m.HomePageModule),
+    component: DeckComponent,
     canActivate: [AuthGuard],
   },
   {
     path: 'play',
-    component: PlayComponent
-
+    component: PlayComponent,
   },
   {
     path: '',

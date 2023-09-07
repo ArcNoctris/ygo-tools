@@ -16,32 +16,40 @@ import { GlobalErrorHandlerService } from './core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PlayComponent } from './play/play.component';
 import { DeckComponent } from './deck/deck.component';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import {ProfileComponent} from './profile/profile.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     PlayComponent,
     DeckComponent,
+    LoginComponent,
+    HomeComponent,
+    ProfileComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    IonicModule.forRoot(),
+    FlexLayoutModule,
+
     
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    IonicModule.forRoot(),
   ],
   providers: [
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {
       provide: ErrorHandler,
       useClass: GlobalErrorHandlerService,
     },
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent]
 })
